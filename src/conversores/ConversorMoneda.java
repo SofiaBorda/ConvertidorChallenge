@@ -15,7 +15,7 @@ public class ConversorMoneda {
 	}
 	
 	public void prepararValoresMonedas() {
-		monedas.put("dolar", 4000);
+		monedas.put("dolar", 4100);
 		monedas.put("euro", 4500);
 		monedas.put("Chelines", 5000);
 	}
