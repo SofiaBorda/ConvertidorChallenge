@@ -1,9 +1,26 @@
 package conversores;
 
+import java.util.HashMap;
+
 import javax.swing.JOptionPane;
 import convertidorChallenge2Interfaz.CuadroTexto;
 
 public class ConversorMoneda {
+	
+	private static HashMap<String, Integer> monedas;
+	
+	public ConversorMoneda() {
+		monedas = new HashMap<String, Integer>();
+		prepararValoresMonedas();
+	}
+	
+	public void prepararValoresMonedas() {
+		monedas.put("dolar", 4000);
+		monedas.put("euro", 4500);
+		monedas.put("Chelines", 5000);
+	}
+	
+	
 	public static void mostrarConversorMoneda() {
 		String[] opciones = {"De pesos a dolar", "De dolar a pesos", "De pesos a euros","De euros a pesos"};
 
@@ -48,28 +65,28 @@ public class ConversorMoneda {
 
 	public static void conversorPesosDolar() {
 		double valor = pedirValor();
-		double valorFinal = valor / 3500;
+		double valorFinal = valor / monedas.get("dolar");
 		JOptionPane.showMessageDialog(null, valor + " pesos son  " + valorFinal + " dolares.");
 		CuadroTexto.salida();
 	}
 	
 	public static void conversorDolarPesos() {
 		double valor = pedirValor();
-		double valorFinal = valor * 3500;
+		double valorFinal = valor * monedas.get("dolar");
 		JOptionPane.showMessageDialog(null, valor + " dolares son " + valorFinal + " pesos.");
 		CuadroTexto.salida();
 	}
 	
 	public static void conversorpesosEuros() {
 		double valor = pedirValor();
-		double valorFinal = valor * 4300;
+		double valorFinal = valor * monedas.get("euro");
 		JOptionPane.showMessageDialog(null, valor + " pesos son " + valorFinal + " euros.");
 		CuadroTexto.salida();
 	}
 	
 	public static void conversorEurosPesos() {
 		double valor = pedirValor();
-		double valorFinal = valor * 4300;
+		double valorFinal = valor * monedas.get("euro");
 		JOptionPane.showMessageDialog(null, valor + " euros son " + valorFinal + " pesos.");
 		CuadroTexto.salida();
 	}
